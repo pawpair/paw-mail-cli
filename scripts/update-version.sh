@@ -18,7 +18,7 @@ TAG="${2:-v${VERSION}}"
 BINARIES=("mail-cli" "mail-tui" "mail")
 ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
 
-DOWNLOAD_BASE="https://github.com/${REPO}/releases/download/${TAG}"
+DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"
 
 echo "Updating to version ${VERSION} (tag: ${TAG})"
 echo "Download base: ${DOWNLOAD_BASE}"
@@ -56,7 +56,7 @@ for bin in "${BINARIES[@]}"; do
 done
 
 # Write version.json (use jq to format if available, else raw)
-raw_json="{ \"version\": \"${VERSION}\", \"binaries\": { ${json_binaries} } }"
+raw_json="{ \"version\": \"${VERSION}\", \"download_base\": \"${DOWNLOAD_BASE}\", \"binaries\": { ${json_binaries} } }"
 if command -v jq &>/dev/null; then
     echo "${raw_json}" | jq '.' > "${REPO_ROOT}/version.json"
 else
