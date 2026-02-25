@@ -18,7 +18,7 @@ TAG="${2:-v${VERSION}}"
 BINARIES=("mail-cli" "mail-tui" "mail")
 ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
 
-DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"
+DOWNLOAD_BASE="https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/${TAG}"
 
 echo "Updating to version ${VERSION} (tag: ${TAG})"
 echo "Download base: ${DOWNLOAD_BASE}"

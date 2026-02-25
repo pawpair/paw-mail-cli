@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "download_base": "https://paw-mail-releases.pawpair.pet/v0.1.0",
+  "download_base": "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v0.1.0",
   "binaries": {
     "mail-cli": {
       "x86_64-linux": { "sha256": "0000000000000000000000000000000000000000000000000000000000000000" },
