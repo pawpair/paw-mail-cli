@@ -26,7 +26,7 @@
           arch = archMap.${system};
           meta = binariesMeta.${binaryName}.${arch};
           src = pkgs.fetchurl {
-            url = "https://paw-mail-releases.pawpair.pet/v${version}/${binaryName}-${arch}.tar.gz";
+            url = "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v${version}/${binaryName}-${arch}.tar.gz";
             sha256 = meta.sha256;
           };
         in

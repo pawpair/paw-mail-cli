@@ -9,7 +9,7 @@ license=('MIT')
 provides=('mail-cli')
 conflicts=('mail-cli')
 
-_base_url="https://paw-mail-releases.pawpair.pet/v${pkgver}"
+_base_url="https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v${pkgver}"
 
 source_x86_64=("${_base_url}/mail-cli-x86_64-linux.tar.gz")
 source_aarch64=("${_base_url}/mail-cli-aarch64-linux.tar.gz")
