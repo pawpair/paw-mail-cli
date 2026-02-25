@@ -7,12 +7,12 @@ class Mail < Formula
   on_macos do
     on_arm do
       # aarch64-darwin
-      url "https://github.com/pawpair/paw-mail-cli/releases/download/v#{version}/mail-aarch64-darwin.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-aarch64-darwin.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
     on_intel do
       # x86_64-darwin
-      url "https://github.com/pawpair/paw-mail-cli/releases/download/v#{version}/mail-x86_64-darwin.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-x86_64-darwin.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
   end
@@ -20,12 +20,12 @@ class Mail < Formula
   on_linux do
     on_arm do
       # aarch64-linux
-      url "https://github.com/pawpair/paw-mail-cli/releases/download/v#{version}/mail-aarch64-linux.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-aarch64-linux.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
     on_intel do
       # x86_64-linux
-      url "https://github.com/pawpair/paw-mail-cli/releases/download/v#{version}/mail-x86_64-linux.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-x86_64-linux.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
   end
