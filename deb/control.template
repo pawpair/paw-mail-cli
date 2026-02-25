@@ -1,0 +1,10 @@
+Package: __PACKAGE__
+Version: __VERSION__
+Section: mail
+Priority: optional
+Architecture: __ARCH__
+Maintainer: pawpair <packages@pawpair.com>
+Homepage: https://github.com/pawpair/paw-mail-cli
+Description: __DESCRIPTION__
+ Paw Mail is a modern email client with CLI and TUI interfaces.
+ Built with Rust for performance and reliability.

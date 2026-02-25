@@ -1,0 +1,161 @@
+---
+name: Update Packages
+
+on:
+  repository_dispatch:
+    types: [release-published]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    name: Update package definitions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from dispatch payload
+        id: version
+        run: |
+          VERSION="${{ github.event.client_payload.version }}"
+          TAG="${{ github.event.client_payload.tag }}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Updating to version ${VERSION} (tag: ${TAG})"
+
+      - name: Download binaries and compute SHA-256 hashes
+        id: hashes
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          DOWNLOAD_BASE="https://github.com/${{ github.repository }}/releases/download/${TAG}"
+          BINARIES=("mail-cli" "mail-tui" "mail")
+          ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
+
+          # Build version.json
+          json='{"version":"'"${VERSION}"'","binaries":{'
+          first_bin=true
+          for bin in "${BINARIES[@]}"; do
+              $first_bin || json+=','
+              first_bin=false
+              json+='"'"${bin}"'":{'
+
+              first_arch=true
+              for arch in "${ARCHES[@]}"; do
+                  $first_arch || json+=','
+                  first_arch=false
+
+                  url="${DOWNLOAD_BASE}/${bin}-${arch}.tar.gz"
+                  echo "Fetching ${bin}-${arch}..."
+                  sha256=$(curl -fSL "${url}" | sha256sum | awk '{print $1}')
+                  echo "  sha256: ${sha256}"
+
+                  json+='"'"${arch}"'":{"sha256":"'"${sha256}"'"}'
+              done
+              json+='}'
+          done
+          json+='}}'
+
+          echo "${json}" | jq '.' > version.json
+          echo "Updated version.json"
+          cat version.json
+
+      - name: Update AUR PKGBUILDs
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          for bin in mail-cli mail-tui mail; do
+              pkgname="${bin}-bin"
+              pkgbuild="aur/${pkgname}/PKGBUILD"
+
+              x86_sha=$(jq -r ".binaries.\"${bin}\".\"x86_64-linux\".sha256" version.json)
+              arm_sha=$(jq -r ".binaries.\"${bin}\".\"aarch64-linux\".sha256" version.json)
+
+              sed -i "s/^pkgver=.*/pkgver=${VERSION}/" "${pkgbuild}"
+              sed -i "s/^pkgrel=.*/pkgrel=1/" "${pkgbuild}"
+              sed -i "s|^sha256sums_x86_64=.*|sha256sums_x86_64=('${x86_sha}')|" "${pkgbuild}"
+              sed -i "s|^sha256sums_aarch64=.*|sha256sums_aarch64=('${arm_sha}')|" "${pkgbuild}"
+
+              echo "Updated ${pkgbuild}"
+          done
+
+      - name: Update Homebrew formulas
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          for bin in mail-cli mail-tui mail; do
+              formula="homebrew/Formula/${bin}.rb"
+
+              x86_linux_sha=$(jq -r ".binaries.\"${bin}\".\"x86_64-linux\".sha256" version.json)
+              arm_linux_sha=$(jq -r ".binaries.\"${bin}\".\"aarch64-linux\".sha256" version.json)
+              x86_darwin_sha=$(jq -r ".binaries.\"${bin}\".\"x86_64-darwin\".sha256" version.json)
+              arm_darwin_sha=$(jq -r ".binaries.\"${bin}\".\"aarch64-darwin\".sha256" version.json)
+
+              sed -i "s|version \".*\"|version \"${VERSION}\"|" "${formula}"
+              sed -i "/# x86_64-linux/{n;s/sha256 \".*\"/sha256 \"${x86_linux_sha}\"/;}" "${formula}"
+              sed -i "/# aarch64-linux/{n;s/sha256 \".*\"/sha256 \"${arm_linux_sha}\"/;}" "${formula}"
+              sed -i "/# x86_64-darwin/{n;s/sha256 \".*\"/sha256 \"${x86_darwin_sha}\"/;}" "${formula}"
+              sed -i "/# aarch64-darwin/{n;s/sha256 \".*\"/sha256 \"${arm_darwin_sha}\"/;}" "${formula}"
+
+              echo "Updated ${formula}"
+          done
+
+      - name: Commit and push updates
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: update packages to v${VERSION}"
+          git push
+
+      - name: Build .deb packages
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          chmod +x deb/build-deb.sh
+          ./deb/build-deb.sh dist/
+
+      - name: Attach .deb packages to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          for deb in dist/*.deb; do
+              echo "Uploading ${deb}..."
+              gh release upload "${TAG}" "${deb}" --clobber
+          done
+
+      - name: Publish to AUR
+        if: ${{ vars.PUBLISH_AUR == 'true' }}
+        uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
+        with:
+          pkgname: mail-cli-bin
+          pkgbuild: aur/mail-cli-bin/PKGBUILD
+          commit_username: pawpair
+          commit_email: packages@pawpair.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+
+      - name: Publish mail-tui-bin to AUR
+        if: ${{ vars.PUBLISH_AUR == 'true' }}
+        uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
+        with:
+          pkgname: mail-tui-bin
+          pkgbuild: aur/mail-tui-bin/PKGBUILD
+          commit_username: pawpair
+          commit_email: packages@pawpair.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+
+      - name: Publish mail-bin to AUR
+        if: ${{ vars.PUBLISH_AUR == 'true' }}
+        uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
+        with:
+          pkgname: mail-bin
+          pkgbuild: aur/mail-bin/PKGBUILD
+          commit_username: pawpair
+          commit_email: packages@pawpair.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
