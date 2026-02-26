@@ -8,14 +8,14 @@ Pre-built binaries and Claude Code skills for the Paw Mail email client.
 
 ```bash
 # Install the unified binary
-nix profile install github:pawpair/paw-mail-cli#paw-mail
+nix profile install github:pawpair/paw-mail-cli?dir=nix#paw-mail
 
 # Or install individual tools
-nix profile install github:pawpair/paw-mail-cli#paw-mail-cli
-nix profile install github:pawpair/paw-mail-cli#paw-mail-tui
+nix profile install github:pawpair/paw-mail-cli?dir=nix#paw-mail-cli
+nix profile install github:pawpair/paw-mail-cli?dir=nix#paw-mail-tui
 
 # Run without installing
-nix run github:pawpair/paw-mail-cli#paw-mail -- --help
+nix run github:pawpair/paw-mail-cli?dir=nix#paw-mail -- --help
 ```
 
 ### Homebrew (macOS / Linux)
@@ -46,12 +46,14 @@ cd paw-mail-bin && makepkg -si
 
 ### Debian / Ubuntu
 
-Download `.deb` packages from the [latest release](https://github.com/pawpair/paw-mail-cli/releases/latest):
+Download `.deb` packages from the [latest release](https://github.com/pawpair/paw-mail-cli/releases/latest) and install:
 
 ```bash
-# Download and install (example for amd64)
-curl -fSLO https://github.com/pawpair/paw-mail-cli/releases/latest/download/paw-mail_0.1.0_amd64.deb
-sudo dpkg -i paw-mail_0.1.0_amd64.deb
+# amd64
+sudo dpkg -i paw-mail_*_amd64.deb
+
+# arm64
+sudo dpkg -i paw-mail_*_arm64.deb
 ```
 
 ### Manual
@@ -82,7 +84,7 @@ sudo mv paw-mail /usr/local/bin/
 
 ## Claude Code Skills
 
-This repo also hosts reusable [Claude Code skills](https://skills.sh) for software development.
+This repo also hosts reusable [Claude Code skills](https://docs.anthropic.com/en/docs/claude-code/skills) for software development.
 
 ### Install skills into your project
 
@@ -100,21 +102,7 @@ git submodule add https://github.com/pawpair/paw-mail-cli.git skills-public
 
 | Skill | Description |
 |-------|-------------|
-| `clean-ddd-hexagonal` | Clean Architecture + DDD + Hexagonal patterns |
-| `code-quality` | Code correctness and quality rules |
-| `deploy-services` | Service deployment automation |
-| `grpc-service-development` | gRPC microservice patterns |
-| `kubernetes-deployment` | Kubernetes deployment and orchestration |
-| `run-cli` | Paw Mail CLI development and testing |
-| `rust-async-patterns` | Async Rust with Tokio |
-| `rust-best-practices` | Idiomatic Rust (Apollo handbook) |
-| `rust-testing` | Comprehensive Rust testing (42 rules) |
-| `security-best-practices` | Language-agnostic security reviews |
-| `sveltekit-data-flow` | SvelteKit load/action patterns |
-| `sveltekit-structure` | SvelteKit routing and layouts |
-| `ticketing-management` | Ticket/issue management integration |
-| `typescript-best-practices` | Type-first TypeScript development |
-| `worktree` | Git worktree management |
+| `mail-cli-usage` | Paw Mail CLI usage, subcommands, and flags |
 
 ## How releases work
 
