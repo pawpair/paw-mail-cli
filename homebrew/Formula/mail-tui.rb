@@ -7,12 +7,12 @@ class MailTui < Formula
   on_macos do
     on_arm do
       # aarch64-darwin
-      url "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v#{version}/mail-tui-aarch64-darwin.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-tui-aarch64-darwin.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
     on_intel do
       # x86_64-darwin
-      url "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v#{version}/mail-tui-x86_64-darwin.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-tui-x86_64-darwin.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
   end
@@ -20,12 +20,12 @@ class MailTui < Formula
   on_linux do
     on_arm do
       # aarch64-linux
-      url "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v#{version}/mail-tui-aarch64-linux.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-tui-aarch64-linux.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
     on_intel do
       # x86_64-linux
-      url "https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/v#{version}/mail-tui-x86_64-linux.tar.gz"
+      url "https://paw-mail-releases.pawpair.pet/v#{version}/mail-tui-x86_64-linux.tar.gz"
       sha256 "0000000000000000000000000000000000000000000000000000000000000000"
     end
   end

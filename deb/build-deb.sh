@@ -17,7 +17,7 @@ REPO="pawpair/paw-mail-cli"
 
 VERSION=$(jq -r '.version' "${REPO_ROOT}/version.json")
 TAG="v${VERSION}"
-DOWNLOAD_BASE="https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/${TAG}"
+DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"
 
 declare -A ARCH_MAP=(
     ["x86_64-linux"]="amd64"
