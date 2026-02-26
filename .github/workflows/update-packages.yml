@@ -30,7 +30,7 @@ jobs:
           TAG: ${{ steps.version.outputs.tag }}
           VERSION: ${{ steps.version.outputs.version }}
         run: |
-          DOWNLOAD_BASE="https://paw-mail-releases.nyc3.cdn.digitaloceanspaces.com/${TAG}"
+          DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"
           BINARIES=("mail-cli" "mail-tui" "mail")
           ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
 
