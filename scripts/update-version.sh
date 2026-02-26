@@ -15,7 +15,7 @@ REPO="pawpair/paw-mail-cli"
 VERSION="${1:?Usage: update-version.sh <version> [release-tag]}"
 TAG="${2:-v${VERSION}}"
 
-BINARIES=("mail-cli" "mail-tui" "mail")
+BINARIES=("paw-mail-cli" "paw-mail-tui" "paw-mail")
 ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
 
 DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"

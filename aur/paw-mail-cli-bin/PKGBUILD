@@ -1,0 +1,22 @@
+# Maintainer: pawpair <packages@pawpair.com>
+pkgname=paw-mail-cli-bin
+pkgver=0.1.0_alpha.2
+pkgrel=1
+pkgdesc="Command-line interface for the Paw Mail email client"
+arch=('x86_64' 'aarch64')
+url="https://github.com/pawpair/paw-mail-cli"
+license=('MIT')
+provides=('paw-mail-cli')
+conflicts=('paw-mail-cli')
+
+_base_url="https://paw-mail-releases.pawpair.pet/v${pkgver//_/-}"
+
+source_x86_64=("${_base_url}/paw-mail-cli-x86_64-linux.tar.gz")
+source_aarch64=("${_base_url}/paw-mail-cli-aarch64-linux.tar.gz")
+
+sha256sums_x86_64=('0000000000000000000000000000000000000000000000000000000000000000')
+sha256sums_aarch64=('0000000000000000000000000000000000000000000000000000000000000000')
+
+package() {
+    install -Dm755 paw-mail-cli "${pkgdir}/usr/bin/paw-mail-cli"
+}

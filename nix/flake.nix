@@ -1,5 +1,5 @@
 {
-  description = "Paw Mail — pre-built binaries for mail-cli, mail-tui, and mail";
+  description = "Paw Mail — pre-built binaries for paw-mail-cli, paw-mail-tui, and paw-mail";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -69,10 +69,10 @@
       in
       {
         packages = {
-          mail-cli = mkBinaryPackage { inherit pkgs system; binaryName = "mail-cli"; };
-          mail-tui = mkBinaryPackage { inherit pkgs system; binaryName = "mail-tui"; };
-          mail = mkBinaryPackage { inherit pkgs system; binaryName = "mail"; };
-          default = mkBinaryPackage { inherit pkgs system; binaryName = "mail"; };
+          paw-mail-cli = mkBinaryPackage { inherit pkgs system; binaryName = "paw-mail-cli"; };
+          paw-mail-tui = mkBinaryPackage { inherit pkgs system; binaryName = "paw-mail-tui"; };
+          paw-mail = mkBinaryPackage { inherit pkgs system; binaryName = "paw-mail"; };
+          default = mkBinaryPackage { inherit pkgs system; binaryName = "paw-mail"; };
         };
       }
     );

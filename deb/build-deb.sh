@@ -25,12 +25,12 @@ declare -A ARCH_MAP=(
 )
 
 declare -A DESCRIPTIONS=(
-    ["mail-cli"]="Command-line interface for the Paw Mail email client"
-    ["mail-tui"]="Terminal UI for the Paw Mail email client"
-    ["mail"]="Paw Mail email client — unified CLI and TUI"
+    ["paw-mail-cli"]="Command-line interface for the Paw Mail email client"
+    ["paw-mail-tui"]="Terminal UI for the Paw Mail email client"
+    ["paw-mail"]="Paw Mail email client — unified CLI and TUI"
 )
 
-BINARIES=("mail-cli" "mail-tui" "mail")
+BINARIES=("paw-mail-cli" "paw-mail-tui" "paw-mail")
 
 mkdir -p "${OUTPUT_DIR}"
 

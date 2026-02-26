@@ -10,7 +10,8 @@ Pre-built binaries and Claude Code skills for the Paw Mail email client.
 # Install the unified binary
 nix profile install github:pawpair/paw-mail-cli#paw-mail
 
-# Or install the TUI only
+# Or install individual tools
+nix profile install github:pawpair/paw-mail-cli#paw-mail-cli
 nix profile install github:pawpair/paw-mail-cli#paw-mail-tui
 
 # Run without installing
@@ -23,7 +24,8 @@ nix run github:pawpair/paw-mail-cli#paw-mail -- --help
 brew tap pawpair/paw-mail-cli
 brew install paw-mail
 
-# Or install the TUI only
+# Or install individual tools
+brew install paw-mail-cli
 brew install paw-mail-tui
 ```
 
@@ -33,7 +35,8 @@ brew install paw-mail-tui
 # Using an AUR helper (e.g., yay, paru)
 yay -S paw-mail-bin
 
-# Or TUI only
+# Or individual packages
+yay -S paw-mail-cli-bin
 yay -S paw-mail-tui-bin
 
 # Or manually
@@ -62,10 +65,11 @@ sudo mv paw-mail /usr/local/bin/
 
 ## Binaries
 
-| Binary        | Description                     |
-|---------------|---------------------------------|
-| `paw-mail`    | Unified CLI + TUI (recommended) |
-| `paw-mail-tui`| Terminal user interface only     |
+| Binary         | Description                          |
+|----------------|--------------------------------------|
+| `paw-mail`     | Unified CLI + TUI (recommended)      |
+| `paw-mail-cli` | Command-line interface only           |
+| `paw-mail-tui` | Terminal user interface only          |
 
 ## Platforms
 
