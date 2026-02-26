@@ -1,5 +1,5 @@
 ---
-name: mail-cli-usage
+name: paw-mail-usage
 description: >
   How to use the Paw Mail CLI (paw-mail). Use this skill when:
   (1) you need to run a CLI command (auth, accounts, emails, sync, threads),
