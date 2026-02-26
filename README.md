@@ -98,15 +98,9 @@ npx skills add pawpair/paw-mail-cli
 |-------|-------------|
 | `paw-mail-usage` | Paw Mail CLI usage, subcommands, and flags |
 
-## How releases work
+## Documentation
 
-1. A new version is tagged in the private build repo
-2. CI cross-compiles for all 4 targets (musl static for Linux, standard for macOS)
-3. Binaries are uploaded as a GitHub Release on **this repo**
-4. A `repository_dispatch` triggers the update workflow
-5. The update workflow computes SHA-256 hashes and regenerates all package definitions (Nix, AUR, Homebrew, Debian)
-6. `.deb` packages are built and attached to the release
-7. AUR PKGBUILDs are published
+Full command reference (auto-generated from source): [pawpair.github.io/paw-mail-cli](https://pawpair.github.io/paw-mail-cli/)
 
 ## License
 

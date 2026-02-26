@@ -102,6 +102,21 @@ jobs:
               echo "Updated ${formula}"
           done
 
+      - name: Download and update CLI docs
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          DOCS_BASE="${{ github.event.client_payload.docs_base }}"
+          if [ -n "${DOCS_BASE}" ]; then
+            mkdir -p docs/
+            for file in index.md paw-mail.md paw-mail-cli.md; do
+              curl -fSL "${DOCS_BASE}/${file}" -o "docs/${file}"
+            done
+            echo "Downloaded docs from ${DOCS_BASE}"
+          else
+            echo "No docs_base in payload, skipping docs update"
+          fi
+
       - name: Commit and push updates
         env:
           VERSION: ${{ steps.version.outputs.version }}
