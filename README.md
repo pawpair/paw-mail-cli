@@ -89,20 +89,14 @@ This repo also hosts reusable [Claude Code skills](https://docs.anthropic.com/en
 ### Install skills into your project
 
 ```bash
-# Clone this repo and run the install script
-git clone https://github.com/pawpair/paw-mail-cli.git
-./paw-mail-cli/scripts/install-skills.sh
-
-# Or add as a submodule
-git submodule add https://github.com/pawpair/paw-mail-cli.git skills-public
-./skills-public/scripts/install-skills.sh
+npx skills add pawpair/paw-mail-cli
 ```
 
 ### Available skills
 
 | Skill | Description |
 |-------|-------------|
-| `mail-cli-usage` | Paw Mail CLI usage, subcommands, and flags |
+| `paw-mail-usage` | Paw Mail CLI usage, subcommands, and flags |
 
 ## How releases work
 
