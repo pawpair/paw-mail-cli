@@ -8,40 +8,37 @@ Pre-built binaries and Claude Code skills for the Paw Mail email client.
 
 ```bash
 # Install the unified binary
-nix profile install github:pawpair/paw-mail-cli#mail
+nix profile install github:pawpair/paw-mail-cli#paw-mail
 
-# Or install individual tools
-nix profile install github:pawpair/paw-mail-cli#mail-cli
-nix profile install github:pawpair/paw-mail-cli#mail-tui
+# Or install the TUI only
+nix profile install github:pawpair/paw-mail-cli#paw-mail-tui
 
 # Run without installing
-nix run github:pawpair/paw-mail-cli#mail -- --help
+nix run github:pawpair/paw-mail-cli#paw-mail -- --help
 ```
 
 ### Homebrew (macOS / Linux)
 
 ```bash
 brew tap pawpair/paw-mail-cli
-brew install mail
+brew install paw-mail
 
-# Or install individual tools
-brew install mail-cli
-brew install mail-tui
+# Or install the TUI only
+brew install paw-mail-tui
 ```
 
 ### Arch Linux (AUR)
 
 ```bash
 # Using an AUR helper (e.g., yay, paru)
-yay -S mail-bin
+yay -S paw-mail-bin
 
-# Or individual packages
-yay -S mail-cli-bin
-yay -S mail-tui-bin
+# Or TUI only
+yay -S paw-mail-tui-bin
 
 # Or manually
-git clone https://aur.archlinux.org/mail-bin.git
-cd mail-bin && makepkg -si
+git clone https://aur.archlinux.org/paw-mail-bin.git
+cd paw-mail-bin && makepkg -si
 ```
 
 ### Debian / Ubuntu
@@ -50,8 +47,8 @@ Download `.deb` packages from the [latest release](https://github.com/pawpair/pa
 
 ```bash
 # Download and install (example for amd64)
-curl -fSLO https://github.com/pawpair/paw-mail-cli/releases/latest/download/mail_0.1.0_amd64.deb
-sudo dpkg -i mail_0.1.0_amd64.deb
+curl -fSLO https://github.com/pawpair/paw-mail-cli/releases/latest/download/paw-mail_0.1.0_amd64.deb
+sudo dpkg -i paw-mail_0.1.0_amd64.deb
 ```
 
 ### Manual
@@ -59,17 +56,16 @@ sudo dpkg -i mail_0.1.0_amd64.deb
 Download the tarball for your platform from [releases](https://github.com/pawpair/paw-mail-cli/releases/latest), extract, and place the binary on your `PATH`:
 
 ```bash
-tar xzf mail-x86_64-linux.tar.gz
-sudo mv mail /usr/local/bin/
+tar xzf paw-mail-x86_64-linux.tar.gz
+sudo mv paw-mail /usr/local/bin/
 ```
 
 ## Binaries
 
-| Binary     | Description                          |
-|------------|--------------------------------------|
-| `mail`     | Unified CLI + TUI (recommended)      |
-| `mail-cli` | Command-line interface only           |
-| `mail-tui` | Terminal user interface only          |
+| Binary        | Description                     |
+|---------------|---------------------------------|
+| `paw-mail`    | Unified CLI + TUI (recommended) |
+| `paw-mail-tui`| Terminal user interface only     |
 
 ## Platforms
 
@@ -89,7 +85,7 @@ This repo also hosts reusable [Claude Code skills](https://skills.sh) for softwa
 ```bash
 # Clone this repo and run the install script
 git clone https://github.com/pawpair/paw-mail-cli.git
-./mail-cli/scripts/install-skills.sh
+./paw-mail-cli/scripts/install-skills.sh
 
 # Or add as a submodule
 git submodule add https://github.com/pawpair/paw-mail-cli.git skills-public
