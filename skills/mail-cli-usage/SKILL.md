@@ -9,8 +9,8 @@ license: MIT
 compatibility: Linux x86_64/aarch64, macOS x86_64/aarch64
 metadata:
   author: pawpair
-  version: "2.1.0"
-allowed-tools: Bash(paw-mail:*) Read Glob Grep
+  version: "2.2.0"
+allowed-tools: Bash(paw-mail:*) Bash(paw-mail-tui:*) Read Glob Grep
 ---
 
 # Paw Mail CLI
@@ -33,6 +33,15 @@ yay -S paw-mail-bin
 curl -fSLO https://github.com/pawpair/paw-mail-cli/releases/latest/download/paw-mail_0.1.0_amd64.deb
 sudo dpkg -i paw-mail_0.1.0_amd64.deb
 ```
+
+## Binaries
+
+| Binary        | Description                     |
+|---------------|---------------------------------|
+| `paw-mail`    | Unified CLI + TUI (recommended) |
+| `paw-mail-tui`| Terminal user interface only     |
+
+All examples below use `paw-mail`. The TUI can be launched with `paw-mail-tui` or `paw-mail tui`.
 
 ## Global Flags
 
