@@ -31,7 +31,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
           DOWNLOAD_BASE="https://paw-mail-releases.pawpair.pet/${TAG}"
-          BINARIES=("mail-cli" "mail-tui" "mail")
+          BINARIES=("paw-mail-cli" "paw-mail-tui" "paw-mail")
           ARCHES=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
 
           # Build version.json
@@ -66,7 +66,7 @@ jobs:
         env:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
-          for bin in mail-cli mail-tui mail; do
+          for bin in paw-mail-cli paw-mail-tui paw-mail; do
               pkgname="${bin}-bin"
               pkgbuild="aur/${pkgname}/PKGBUILD"
 
@@ -85,7 +85,7 @@ jobs:
         env:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
-          for bin in mail-cli mail-tui mail; do
+          for bin in paw-mail-cli paw-mail-tui paw-mail; do
               formula="homebrew/Formula/${bin}.rb"
 
               x86_linux_sha=$(jq -r ".binaries.\"${bin}\".\"x86_64-linux\".sha256" version.json)
@@ -130,32 +130,32 @@ jobs:
               gh release upload "${TAG}" "${deb}" --clobber
           done
 
-      - name: Publish to AUR
+      - name: Publish paw-mail-cli-bin to AUR
         if: ${{ vars.PUBLISH_AUR == 'true' }}
         uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
         with:
-          pkgname: mail-cli-bin
-          pkgbuild: aur/mail-cli-bin/PKGBUILD
+          pkgname: paw-mail-cli-bin
+          pkgbuild: aur/paw-mail-cli-bin/PKGBUILD
           commit_username: pawpair
           commit_email: packages@pawpair.com
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
 
-      - name: Publish mail-tui-bin to AUR
+      - name: Publish paw-mail-tui-bin to AUR
         if: ${{ vars.PUBLISH_AUR == 'true' }}
         uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
         with:
-          pkgname: mail-tui-bin
-          pkgbuild: aur/mail-tui-bin/PKGBUILD
+          pkgname: paw-mail-tui-bin
+          pkgbuild: aur/paw-mail-tui-bin/PKGBUILD
           commit_username: pawpair
           commit_email: packages@pawpair.com
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
 
-      - name: Publish mail-bin to AUR
+      - name: Publish paw-mail-bin to AUR
         if: ${{ vars.PUBLISH_AUR == 'true' }}
         uses: KSXGitHub/github-actions-deploy-aur@v3.0.1
         with:
-          pkgname: mail-bin
-          pkgbuild: aur/mail-bin/PKGBUILD
+          pkgname: paw-mail-bin
+          pkgbuild: aur/paw-mail-bin/PKGBUILD
           commit_username: pawpair
           commit_email: packages@pawpair.com
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
