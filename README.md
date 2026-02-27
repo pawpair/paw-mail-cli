@@ -1,5 +1,7 @@
 # Paw Mail
 
+[Documentation](https://pawpair.github.io/paw-mail-cli/)
+
 Pre-built binaries and Claude Code skills for the Paw Mail email client.
 
 ## Installation
