@@ -109,7 +109,7 @@ jobs:
           DOCS_BASE="${{ github.event.client_payload.docs_base }}"
           if [ -n "${DOCS_BASE}" ]; then
             mkdir -p docs/
-            for file in index.md paw-mail.md paw-mail-cli.md; do
+            for file in index.md; do
               curl -fSL "${DOCS_BASE}/${file}" -o "docs/${file}"
             done
             echo "Downloaded docs from ${DOCS_BASE}"
