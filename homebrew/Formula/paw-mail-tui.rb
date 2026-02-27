@@ -1,7 +1,7 @@
 class PawMailTui < Formula
   desc "Terminal UI for the Paw Mail email client"
   homepage "https://github.com/pawpair/paw-mail-cli"
-  version "0.1.0-alpha.2"
+  version "0.1.0-alpha.3"
   license "MIT"
 
   on_macos do

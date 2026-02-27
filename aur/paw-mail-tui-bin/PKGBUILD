@@ -1,6 +1,6 @@
 # Maintainer: pawpair <packages@pawpair.com>
 pkgname=paw-mail-tui-bin
-pkgver=0.1.0-alpha.2
+pkgver=0.1.0-alpha.3
 pkgrel=1
 pkgdesc="Terminal UI for the Paw Mail email client"
 arch=('x86_64' 'aarch64')
@@ -14,8 +14,8 @@ _base_url="https://paw-mail-releases.pawpair.pet/v${pkgver//_/-}"
 source_x86_64=("${_base_url}/paw-mail-tui-x86_64-linux.tar.gz")
 source_aarch64=("${_base_url}/paw-mail-tui-aarch64-linux.tar.gz")
 
-sha256sums_x86_64=('37db8da2b777dcf9fdf689f5fc1d60bb334089852b22cbdebfb3255ea94faa01')
-sha256sums_aarch64=('f57784399347a401777b32e7849750517b193c3e39702a27f368c2e9acb76462')
+sha256sums_x86_64=('18150c087aa548ec9ad890699957d2711f08427067edd6f91699d33d2f7fdc76')
+sha256sums_aarch64=('f56cf8e28d44fbb669c1f721a88cd447070a750a32ed2bed0f460481652f1055')
 
 package() {
     install -Dm755 paw-mail-tui "${pkgdir}/usr/bin/paw-mail-tui"

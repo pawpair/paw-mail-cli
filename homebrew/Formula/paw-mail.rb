@@ -1,7 +1,7 @@
 class PawMail < Formula
   desc "Paw Mail email client — unified CLI and TUI"
   homepage "https://github.com/pawpair/paw-mail-cli"
-  version "0.1.0-alpha.2"
+  version "0.1.0-alpha.3"
   license "MIT"
 
   on_macos do
