@@ -1,6 +1,6 @@
 # Maintainer: pawpair <packages@pawpair.com>
 pkgname=paw-mail-bin
-pkgver=0.1.0-alpha.2
+pkgver=0.1.0-alpha.5
 pkgrel=1
 pkgdesc="Paw Mail email client — unified CLI and TUI"
 arch=('x86_64' 'aarch64')
@@ -16,8 +16,8 @@ _base_url="https://paw-mail-releases.pawpair.pet/v${pkgver//_/-}"
 source_x86_64=("${_base_url}/paw-mail-x86_64-linux.tar.gz")
 source_aarch64=("${_base_url}/paw-mail-aarch64-linux.tar.gz")
 
-sha256sums_x86_64=('bdfd8d86c7a5e67b2bd4d3000a83938e7c4bde9a6b8f066328a3f9c822d93d42')
-sha256sums_aarch64=('4496c133bc0a5920b7f6d04045cbec0e997ef863ac05fd15d2980b96c2141267')
+sha256sums_x86_64=('45821633200a39d7bec7f565648de18c69c2b1fd9861e09f99f48ae32e81ca90')
+sha256sums_aarch64=('6dd8a30ef6ceb2773bc3ca65be733acd42ea34ac1a6d10b976e6d294aa3da8d7')
 
 package() {
     install -Dm755 paw-mail "${pkgdir}/usr/bin/paw-mail"
