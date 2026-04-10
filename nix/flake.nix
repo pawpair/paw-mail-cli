@@ -40,9 +40,10 @@
             pkgs.autoPatchelfHook
           ];
 
-          # musl static builds should not need runtime deps, but keep this
-          # in case we switch to glibc builds in the future
-          buildInputs = [ ];
+          buildInputs = pkgs.lib.optionals pkgs.stdenv.isLinux [
+            pkgs.openssl
+            pkgs.stdenv.cc.cc.lib
+          ];
 
           unpackPhase = ''
             tar xzf $src
