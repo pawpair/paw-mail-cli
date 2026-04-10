@@ -1,7 +1,7 @@
 class PawMailCli < Formula
   desc "Command-line interface for the Paw Mail email client"
   homepage "https://github.com/pawpair/paw-mail-cli"
-  version "0.1.0-alpha.5"
+  version "0.1.0-alpha.9"
   license "MIT"
 
   on_macos do

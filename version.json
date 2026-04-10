@@ -1,47 +1,47 @@
 {
-  "version": "0.1.0-alpha.5",
-  "download_base": "https://paw-mail-releases.pawpair.pet/v0.1.0-alpha.5",
+  "version": "0.1.0-alpha.9",
+  "download_base": "https://github.com/pawpair/paw-mail-cli/releases/download/v0.1.0-alpha.9",
   "binaries": {
     "paw-mail-cli": {
       "x86_64-linux": {
-        "sha256": "f4d5d1a7088cba77ab036a6bb82851e216069a8e28476a33afca20b3210bca22"
+        "sha256": "da8af1e3baf54b8877d070967863b8e794205096df269bc4154b79d8e97bcd0d"
       },
       "aarch64-linux": {
-        "sha256": "248029d2be05083f72f7cbbaeb57de9c4d8c36df33534eaf3cfbdb1306fdf20a"
+        "sha256": "8f4746a295dc91ee0f908024092118d0c05b984f1fb8f7cafceaaff7d2c1e453"
       },
       "x86_64-darwin": {
-        "sha256": "0b2a485c552176a7d673fa2e7b36daef9af1f0832c49bda4ab30d6f44d42bd50"
+        "sha256": "2d0d6d75666a1e50a85c68e815a274d5d26ad038b0df8e28ab7279d8e43cf3f7"
       },
       "aarch64-darwin": {
-        "sha256": "06afce2352bfe24221173ee0c660d8e78bbffcb1ea6b2d09ccd6ddc2844e6f0a"
+        "sha256": "3016ab7703f771cf272beeccb470208b0c8611ed86625f3db9382c3baafd51c8"
       }
     },
     "paw-mail-tui": {
       "x86_64-linux": {
-        "sha256": "2738678bd909e43dd73ed96f54db5b2e03014395df1d71081a748b531f528383"
+        "sha256": "5f6ffd8e4b8f20a8725bea6f7a6cc2810ef7ca0c61192195215649b648e8b68e"
       },
       "aarch64-linux": {
-        "sha256": "6c695ec45d9a70dbf9067ce755bb198cd9d00a06e0dc826f1cee2d1799313342"
+        "sha256": "595af2c497626d638bba52a13f46fe8d8421d4ef5b07ccd4ee414411bb9964e4"
       },
       "x86_64-darwin": {
-        "sha256": "630a18e39900965e5272ad0e73223a2e1e15ec6dac9e80cb016f0f179fed0e87"
+        "sha256": "11d09a3db50699d50b96f9864faf718d8ad446f6e977dc75a7b97d8dcc3be2ef"
       },
       "aarch64-darwin": {
-        "sha256": "392241f9dc0ea64f41245912488e79591dad2e443780167da9c1ce5fd109b536"
+        "sha256": "5ae4b8ea4028648f100c983a5285e751d3a917ba80f6bb18a83fe755cfcfcc30"
       }
     },
     "paw-mail": {
       "x86_64-linux": {
-        "sha256": "45821633200a39d7bec7f565648de18c69c2b1fd9861e09f99f48ae32e81ca90"
+        "sha256": "00460aab13e9c13b6afd289f8cdcfbfa82fef5c108731419848009ca8e15f109"
       },
       "aarch64-linux": {
-        "sha256": "6dd8a30ef6ceb2773bc3ca65be733acd42ea34ac1a6d10b976e6d294aa3da8d7"
+        "sha256": "44ddae0cbc199dda0d4226136a144bfda9cb856d01f66cb1bca533b723369c8f"
       },
       "x86_64-darwin": {
-        "sha256": "9f914ad8fb15895a79c5e6f04597669aec6ba2f3c1c04ee1b0dd43e72707df09"
+        "sha256": "17e6926f253a0cae3d805583922ce635c069bdf66fde57f51b44e6b272873f3c"
       },
       "aarch64-darwin": {
-        "sha256": "1d67076b73895dd94680a7516f9012689f36cacabd76e97d6455876895eeb1fa"
+        "sha256": "8a673c50fc33ce144ce5c2f0610422520dbf7d17113394b45aa6e0831805dc49"
       }
     }
   }
